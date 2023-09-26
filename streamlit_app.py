@@ -40,6 +40,7 @@ my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
 my_data_rows = my_cur.fetchall()
+my_data_rows = my_data_rows.set_index('Fruit')
 st.header("The fruit load list contains:")
 st.dataframe(my_data_rows)
 
