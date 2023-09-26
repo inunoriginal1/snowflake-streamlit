@@ -41,9 +41,8 @@ my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
 my_data_rows = my_cur.fetchall()
 my_data_rows = my_data_rows.set_index('Fruit')
-st.header("The fruit load list contains:")
 st.dataframe(my_data_rows)
 
 # Allow the end user to add a fruit to the list
-add_my_fruit = st.multiselect("What fruit would you like to add?", list(my_data_rows.index), "Jackfruit")
-st.text("Thanks for adding " + add_my_fuit)
+add_my_fruit = st.multiselect("What fruit would you like to add?", list(my_data_rows["0"]), "Jackfruit")
+st.text("Thanks for adding " + add_my_fruit)
